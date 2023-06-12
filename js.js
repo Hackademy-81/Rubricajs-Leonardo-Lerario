@@ -3,6 +3,11 @@ let cardWrapper = document.querySelector('#card-Wrapper')
 
 // bottoni
 let BtnRubrica = document.querySelector('#Btn-Rubrica')
+let saveContactBtn = document.querySelector ('#saveContactBtn')
+
+// input
+let nameInput = document.querySelector('#nameInput')
+let numberInput = document.querySelector('#numberInput')
 
 
 let Rubrica = {
@@ -30,8 +35,15 @@ let Rubrica = {
                `;
                 cardWrapper.appendChild(div);
             });
+    },
+
+    salvaContatto : function(newName, newNumber) {
+        this.contatti.push({name: newName, telefono: newNumber});
+        this.schedaRubrica ()
     }
 };
+
+
 
 
 
@@ -52,4 +64,26 @@ BtnRubrica.addEventListener('click', ()=>{
     }
 
         
+});
+
+saveContactBtn.addEventListener('click',()=>{
+
+    if (nameInput.value != '' && numberInput.value != '') {
+        Rubrica.salvaContatto(nameInput.value,numberInput.value);
+    // abbiamo collegato gli input alla funzione, adesso quando si scrive qualcosa negli input andranno direttamente nei parametri della funzione
+
+    nameInput.value = '';
+    numberInput.value = '';
+
+
+
+    if (check == false) {
+        BtnRubrica.innerHTML = 'Nascondi Rubrica'
+        check = true;
+    };
+
+    }else{
+        alert('inserire nome e numero')
+    };
+    
 });
