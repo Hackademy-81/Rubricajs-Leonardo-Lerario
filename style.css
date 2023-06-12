@@ -3,6 +3,10 @@ body {
     color: rgb(244, 244, 244);
 }
 
+p{
+    margin: 0px;
+}
+
 .btn-custom{
     background-color: transparent;
     color: rgb(244, 244, 244);
@@ -14,4 +18,22 @@ body {
     background-color: rgb(244, 244, 244);
     color: rgb(33,33,33);
     transform: scale(1.1);
+}
+
+.width-card{
+    width: 50%;
+}
+
+.card-custom{
+    height: 80px;
+    border: 2px solid rgb(244, 244, 244);
+    box-shadow: 2px 2px 5px rgb(244, 244, 244) ;
+    margin: 20px;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+}
+
+.icon{
+    cursor: pointer;
 }
