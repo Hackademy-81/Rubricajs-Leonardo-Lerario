@@ -10,11 +10,12 @@ let nameInput = document.querySelector('#nameInput')
 let numberInput = document.querySelector('#numberInput')
 
 
+
 let Rubrica = {
     contatti : [
-        {name : 'Leonardo', telefono : '3454321123' },
-        {name : 'Lynne', telefono : '3468546735' },
-        {name : 'Stefano', telefono : '34765898766' },
+        {id : 1, name : 'Leonardo', telefono : '3454321123' },
+        {id : 2, name : 'Lynne', telefono : '3468546735' },
+        {id : 3, name : 'Stefano', telefono : '34765898766' },
     ],
 
     schedaRubrica : function() {
@@ -35,12 +36,43 @@ let Rubrica = {
                `;
                 cardWrapper.appendChild(div);
             });
+     // icone
+    let icons = document.querySelectorAll('.icon')
+        
+    icons.forEach( (icon, i)=> {
+        icon.addEventListener('click', ()=>{
+                let contactId = this.contatti[i].id;
+                this.eliminaContatto(contactId)
+        });
+    });
+    
     },
 
+   
+
     salvaContatto : function(newName, newNumber) {
-        this.contatti.push({name: newName, telefono: newNumber});
+
+        let newId;
+
+        if (this.contatti.length > 0){
+            newId = this.contatti[this.contatti.length - 1].id + 1;
+        }else{
+            newId = 1;
+        }
+
+        this.contatti.push({id : newId, name: newName, telefono: newNumber});
         this.schedaRubrica ()
-    }
+    },
+
+    eliminaContatto : function(newId){
+        let element = this.contatti.find((contatto)=> contatto.id == newId);
+
+        let index = this.contatti.indexOf(element);
+
+        this.contatti.splice(index, 1);
+
+        this.schedaRubrica ();
+    },
 };
 
 
