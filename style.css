@@ -1,0 +1,17 @@
+body {
+    background: rgb(33,33,33);
+    color: rgb(244, 244, 244);
+}
+
+.btn-custom{
+    background-color: transparent;
+    color: rgb(244, 244, 244);
+    border: 2px solid rgb(244, 244, 244);
+    border-radius: 20px;
+    padding: 30px 40px;
+}
+.btn-custom:hover{
+    background-color: rgb(244, 244, 244);
+    color: rgb(33,33,33);
+    transform: scale(1.1);
+}
